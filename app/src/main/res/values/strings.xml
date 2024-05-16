@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">hw_urban_newsApp</string>
     <string name="newsapp">NewsApp</string>
-    <string name="exit">Выход</string>
-    <string name="internet_warming">Проблема с интернетом</string>
-    <string name="action_save">Сохранить</string>
-    <string name="saved_news">Сохранненые новости</string>
+    <string name="exit">Exit</string>
+    <string name="internet_warming">Problem with Internet</string>
+    <string name="action_save">Save</string>
+    <string name="saved_news">Saved news</string>
 </resources>
