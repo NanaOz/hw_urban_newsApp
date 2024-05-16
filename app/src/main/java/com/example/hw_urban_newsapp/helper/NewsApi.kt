@@ -1,4 +1,4 @@
-package com.example.hw_urban_newsapp
+package com.example.hw_urban_newsapp.helper
 
 import com.example.hw_urban_newsapp.Models.NewsDataFromJson
 import retrofit2.Call

@@ -1,4 +1,4 @@
-package com.example.hw_urban_newsapp
+package com.example.hw_urban_newsapp.helper
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao

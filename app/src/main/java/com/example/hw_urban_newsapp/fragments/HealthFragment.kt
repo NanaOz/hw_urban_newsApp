@@ -48,7 +48,6 @@ class HealthFragment : Fragment() {
                     putExtra(NEWS_PUBLICATION_TIME, newsData[position].time)
                     putExtra(NEWS_CONTENT, newsData[position].content)
                 }
-
                 startActivity(intent)
             }
         })

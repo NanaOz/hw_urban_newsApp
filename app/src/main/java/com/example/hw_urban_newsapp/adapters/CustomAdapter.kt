@@ -84,7 +84,6 @@ class CustomAdapter(private var newsList: List<NewsModel>) :
             holder.newsPublicationTime.text = hoursAgo
 
         }
-
     }
 
     override fun getItemCount(): Int {

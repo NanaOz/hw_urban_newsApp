@@ -3,11 +3,9 @@ package com.example.hw_urban_newsapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.speech.tts.TextToSpeech
 import android.view.Menu
 import android.view.MenuItem
 import android.webkit.WebChromeClient
-import android.webkit.WebSettings
 import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
@@ -20,8 +18,8 @@ import com.example.hw_urban_newsapp.Models.Constants.NEWS_TITLE
 import com.example.hw_urban_newsapp.Models.Constants.NEWS_URL
 import com.example.hw_urban_newsapp.Models.NewsModel
 import com.example.hw_urban_newsapp.databinding.ActivityShowBinding
+import com.example.hw_urban_newsapp.helper.NewsViewModel
 import java.util.ArrayList
-import java.util.Locale
 
 class ShowActivity : AppCompatActivity() {
 

@@ -1,4 +1,4 @@
-package com.example.hw_urban_newsapp.Models
+package com.example.hw_urban_newsapp.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.hw_urban_newsapp.Models.NewsModel
 import com.example.hw_urban_newsapp.R
-import com.example.hw_urban_newsapp.adapters.CustomAdapter
 import com.squareup.picasso.Picasso
 
 

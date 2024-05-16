@@ -11,10 +11,8 @@ import android.widget.Toast
 import androidx.annotation.AttrRes
 import androidx.annotation.ColorInt
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.hw_urban_newsapp.Models.Constants.NEWS_CONTENT
 import com.example.hw_urban_newsapp.Models.Constants.NEWS_DESCRIPTION
 import com.example.hw_urban_newsapp.Models.Constants.NEWS_IMAGE_URL
@@ -24,8 +22,8 @@ import com.example.hw_urban_newsapp.Models.Constants.NEWS_TITLE
 import com.example.hw_urban_newsapp.Models.Constants.NEWS_URL
 import com.example.hw_urban_newsapp.Models.NewsModel
 import com.example.hw_urban_newsapp.adapters.CustomAdapter
-import com.example.hw_urban_newsapp.databinding.ActivityNewsBinding
 import com.example.hw_urban_newsapp.databinding.ActivitySavedNewsBinding
+import com.example.hw_urban_newsapp.helper.NewsViewModel
 
 class SavedNewsActivity : AppCompatActivity() {
 

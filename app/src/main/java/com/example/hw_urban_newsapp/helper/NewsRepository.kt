@@ -1,4 +1,4 @@
-package com.example.hw_urban_newsapp
+package com.example.hw_urban_newsapp.helper
 
 import android.content.Context
 import android.util.Log
@@ -8,6 +8,7 @@ import com.example.hw_urban_newsapp.Models.Constants
 import com.example.hw_urban_newsapp.Models.NewsDataFromJson
 import com.example.hw_urban_newsapp.Models.NewsDatabase
 import com.example.hw_urban_newsapp.Models.NewsModel
+import com.example.hw_urban_newsapp.NewsActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

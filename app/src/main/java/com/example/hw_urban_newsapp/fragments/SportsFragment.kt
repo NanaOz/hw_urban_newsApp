@@ -42,7 +42,6 @@ class SportsFragment : Fragment() {
                     putExtra(Constants.NEWS_PUBLICATION_TIME, newsData[position].time)
                     putExtra(Constants.NEWS_CONTENT, newsData[position].content)
                 }
-
                 startActivity(intent)
             }
         })

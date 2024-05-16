@@ -10,8 +10,6 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.TextView
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.hw_urban_newsapp.Models.Constants.BUSINESS
 import com.example.hw_urban_newsapp.Models.Constants.ENTERTAINMENT
@@ -25,6 +23,7 @@ import com.example.hw_urban_newsapp.Models.Constants.TOTAL_NEWS_TAB
 import com.example.hw_urban_newsapp.Models.NewsModel
 import com.example.hw_urban_newsapp.adapters.FragmentAdapter
 import com.example.hw_urban_newsapp.databinding.ActivityNewsBinding
+import com.example.hw_urban_newsapp.helper.NewsViewModel
 import com.google.android.material.tabs.TabLayoutMediator
 
 

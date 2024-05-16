@@ -1,4 +1,4 @@
-package com.example.hw_urban_newsapp
+package com.example.hw_urban_newsapp.helper
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -14,5 +14,4 @@ object RetrofitHelper {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
-
 }

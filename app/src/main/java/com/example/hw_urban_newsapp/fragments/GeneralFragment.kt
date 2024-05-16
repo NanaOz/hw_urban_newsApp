@@ -6,10 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.hw_urban_newsapp.Models.CarouselAdapter
+import com.example.hw_urban_newsapp.adapters.CarouselAdapter
 import com.example.hw_urban_newsapp.Models.Constants.INITIAL_POSITION
 import com.example.hw_urban_newsapp.Models.Constants.NEWS_CONTENT
 import com.example.hw_urban_newsapp.Models.Constants.NEWS_DESCRIPTION
@@ -21,13 +19,9 @@ import com.example.hw_urban_newsapp.Models.Constants.NEWS_URL
 import com.example.hw_urban_newsapp.Models.Constants.TOP_HEADLINES_COUNT
 import com.example.hw_urban_newsapp.Models.NewsModel
 import com.example.hw_urban_newsapp.NewsActivity
-import com.example.hw_urban_newsapp.R
 import com.example.hw_urban_newsapp.ShowActivity
 import com.example.hw_urban_newsapp.adapters.CustomAdapter
 import com.example.hw_urban_newsapp.databinding.FragmentGeneralBinding
-import com.google.android.material.carousel.CarouselLayoutManager
-import com.google.android.material.carousel.MaskableFrameLayout
-import com.squareup.picasso.Picasso
 
 class GeneralFragment : Fragment() {
 

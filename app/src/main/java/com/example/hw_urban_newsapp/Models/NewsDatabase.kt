@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.hw_urban_newsapp.Models.Constants.DATABASE_NAME
-import com.example.hw_urban_newsapp.NewsDao
+import com.example.hw_urban_newsapp.helper.NewsDao
 
 @Database(entities = [NewsModel::class], version = 3, exportSchema = false)
 abstract class NewsDatabase : RoomDatabase() {
@@ -28,7 +28,5 @@ abstract class NewsDatabase : RoomDatabase() {
                 return INSTANCE!!
             }
         }
-
     }
-
 }
