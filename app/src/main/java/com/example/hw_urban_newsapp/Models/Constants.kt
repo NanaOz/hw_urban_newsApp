@@ -19,8 +19,8 @@ object Constants {
     const val TOTAL_NEWS_TAB = 7
     const val TOP_HEADLINES_COUNT = 5
 
-//    const val API_KEY = "b9a00088e024483e803725e26dc6567b"
-    const val API_KEY = "f52347b32b234489bf1582728e955a88"
+    const val API_KEY = "b9a00088e024483e803725e26dc6567b"
+//    const val API_KEY = "f52347b32b234489bf1582728e955a88"
 
     const val DATABASE_NAME = "LOGIN_DATABASE"
 

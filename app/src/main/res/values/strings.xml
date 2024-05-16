@@ -1,9 +1,7 @@
 <resources>
     <string name="app_name">hw_urban_newsApp</string>
-    <string name="api">b9a00088e024483e803725e26dc6567b</string>
     <string name="newsapp">NewsApp</string>
     <string name="exit">Выход</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="internet_warming">Проблема с интернетом</string>
     <string name="action_save">Сохранить</string>
     <string name="saved_news">Сохранненые новости</string>

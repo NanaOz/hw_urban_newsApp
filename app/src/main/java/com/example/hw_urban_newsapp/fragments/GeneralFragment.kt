@@ -1,6 +1,5 @@
 package com.example.hw_urban_newsapp.fragments
 
-import android.app.ProgressDialog.show
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,10 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.constraintlayout.helper.widget.Carousel
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.hw_urban_newsapp.MainActivity
+import com.example.hw_urban_newsapp.Models.CarouselAdapter
 import com.example.hw_urban_newsapp.Models.Constants.INITIAL_POSITION
 import com.example.hw_urban_newsapp.Models.Constants.NEWS_CONTENT
 import com.example.hw_urban_newsapp.Models.Constants.NEWS_DESCRIPTION
@@ -28,6 +25,7 @@ import com.example.hw_urban_newsapp.R
 import com.example.hw_urban_newsapp.ShowActivity
 import com.example.hw_urban_newsapp.adapters.CustomAdapter
 import com.example.hw_urban_newsapp.databinding.FragmentGeneralBinding
+import com.google.android.material.carousel.CarouselLayoutManager
 import com.google.android.material.carousel.MaskableFrameLayout
 import com.squareup.picasso.Picasso
 
@@ -55,81 +53,41 @@ class GeneralFragment : Fragment() {
         adapter = CustomAdapter(newsDataForDown)
         binding.recyclerView.adapter = adapter
 
+        val carouselAdapter = CarouselAdapter(newsDataForDown)
+        binding.carouselRecyclerView.adapter = carouselAdapter
 
-//        carouselView = view.findViewById<MaskableFrameLayout>(R.id.home_carousel)
+//        // Инициализация MaskableFrameLayout
+//        val inflater = LayoutInflater.from(context)
+////
+//        for (news in newsDataForTopHeadlines) {
+//            val itemView = inflater.inflate(R.layout.list_item_for_top_headlines, binding.carouselRecyclerView, false)
+////
+//            val imageView = itemView.findViewById<ImageView>(R.id.img)
+//            Picasso.get()
+//                .load(news.image)
+//                .fit()
+//                .centerCrop()
+//                .error(R.drawable.newstest)
+//                .into(imageView)
 //
-//        carouselView.apply {
+//            val newsTitle = itemView.findViewById<TextView>(R.id.headline)
+//            newsTitle.text = news.headLine
 //
-//            size = newsDataForTopHeadlines.size
-//            autoPlay = true
-//            indicatorAnimationType = IndicatorAnimationType.THIN_WORM
-//            carouselOffset = OffsetType.CENTER
-//
-//            setCarouselViewListener { view, position ->
-//                val imageView = view.findViewById<ImageView>(R.id.img)
-//                Picasso.get()
-//                    .load(newsDataForTopHeadlines[position].image)
-//                    .fit()
-//                    .centerCrop()
-//                    .error(R.drawable.newstest)
-//                    .into(imageView)
-//
-//
-//                val newsTitle = view.findViewById<TextView>(R.id.headline)
-//                newsTitle.text = newsDataForTopHeadlines[position].headLine
-//
-//                view.setOnClickListener {
-//
-//                    val intent = Intent(context, ShowActivity::class.java).apply {
-//                        putExtra(NEWS_URL, newsDataForTopHeadlines[position].url)
-//                        putExtra(NEWS_TITLE, newsDataForTopHeadlines[position].headLine)
-//                        putExtra(NEWS_IMAGE_URL, newsDataForTopHeadlines[position].image)
-//                        putExtra(NEWS_DESCRIPTION, newsDataForTopHeadlines[position].description)
-//                        putExtra(NEWS_SOURCE, newsDataForTopHeadlines[position].source)
-//                        putExtra(NEWS_PUBLICATION_TIME, newsDataForTopHeadlines[position].time)
-//                        putExtra(NEWS_CONTENT, newsDataForTopHeadlines[position].content)
-//                    }
-//
-//                    startActivity(intent)
-//
+//            itemView.setOnClickListener {
+//                val intent = Intent(context, ShowActivity::class.java).apply {
+//                    putExtra(NEWS_URL, news.url)
+//                    putExtra(NEWS_TITLE, news.headLine)
+//                    putExtra(NEWS_IMAGE_URL, news.image)
+//                    putExtra(NEWS_DESCRIPTION, news.description)
+//                    putExtra(NEWS_SOURCE, news.source)
+//                    putExtra(NEWS_PUBLICATION_TIME, news.time)
+//                    putExtra(NEWS_CONTENT, news.content)
 //                }
+//                context?.startActivity(intent)
 //            }
-//            // After you finish setting up, show the CarouselView
-//            show()
+//
+//            binding.carouselRecyclerView.addView(itemView)
 //        }
-
-        // Инициализация MaskableFrameLayout
-        val inflater = LayoutInflater.from(context)
-
-        for (news in newsDataForTopHeadlines) {
-            val itemView = inflater.inflate(R.layout.list_item_for_top_headlines, binding.homeCarousel, false)
-
-            val imageView = itemView.findViewById<ImageView>(R.id.img)
-            Picasso.get()
-                .load(news.image)
-                .fit()
-                .centerCrop()
-                .error(R.drawable.newstest)
-                .into(imageView)
-
-            val newsTitle = itemView.findViewById<TextView>(R.id.headline)
-            newsTitle.text = news.headLine
-
-            itemView.setOnClickListener {
-                val intent = Intent(context, ShowActivity::class.java).apply {
-                    putExtra(NEWS_URL, news.url)
-                    putExtra(NEWS_TITLE, news.headLine)
-                    putExtra(NEWS_IMAGE_URL, news.image)
-                    putExtra(NEWS_DESCRIPTION, news.description)
-                    putExtra(NEWS_SOURCE, news.source)
-                    putExtra(NEWS_PUBLICATION_TIME, news.time)
-                    putExtra(NEWS_CONTENT, news.content)
-                }
-                context?.startActivity(intent)
-            }
-
-            binding.homeCarousel.addView(itemView)
-        }
 
         // listitem onClick
         adapter.setOnItemClickListener(object : CustomAdapter.OnItemClickListener {
