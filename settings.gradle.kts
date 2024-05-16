@@ -11,6 +11,7 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
     }
+
 }
 
 rootProject.name = "hw_urban_newsApp"
