@@ -66,7 +66,6 @@ class SavedNewsActivity : AppCompatActivity() {
                     putExtra(NEWS_PUBLICATION_TIME, newsData[position].time)
                     putExtra(NEWS_CONTENT, newsData[position].content)
                 }
-
                 startActivity(intent)
             }
         })
@@ -75,11 +74,11 @@ class SavedNewsActivity : AppCompatActivity() {
             override fun onItemLongClick(position: Int) {
                 // Диалоговое окно удаления сохраненных новостей
                 val alertDialog = AlertDialog.Builder(this@SavedNewsActivity).apply {
-                    setMessage("Удалить новость?")
-                    setTitle("Удаление")
+                    setMessage("Delete news?")
+                    setTitle("Removal")
                     setCancelable(false)
                     setPositiveButton(
-                        "Да"
+                        "Yes"
                     ) { _, _ ->
                         this@SavedNewsActivity.let {
                             viewModel.deleteNews(
@@ -88,10 +87,10 @@ class SavedNewsActivity : AppCompatActivity() {
                             )
                         }
                         adapter.notifyItemRemoved(position)
-                        Toast.makeText(this@SavedNewsActivity, "Удалено!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@SavedNewsActivity, "Deleted!", Toast.LENGTH_SHORT)
+                            .show()
                     }
-
-                    setNegativeButton("Нет") { _, _ ->
+                    setNegativeButton("No") { _, _ ->
                     }
                 }.create()
 
@@ -114,6 +113,7 @@ class SavedNewsActivity : AppCompatActivity() {
                 onBackPressed()
                 return true
             }
+
             R.id.action_exit -> {
                 finishAffinity()
                 return true
