@@ -74,10 +74,6 @@ class SavedNewsActivity : AppCompatActivity() {
         adapter.setOnItemLongClickListener(object : CustomAdapter.OnItemLongClickListener {
             override fun onItemLongClick(position: Int) {
                 // Диалоговое окно удаления сохраненных новостей
-                binding.recyclerView.findViewHolderForAdapterPosition(position)?.itemView?.setBackgroundColor(
-                    getThemeColor(com.google.android.material.R.attr.colorPrimaryVariant)
-                )
-
                 val alertDialog = AlertDialog.Builder(this@SavedNewsActivity).apply {
                     setMessage("Удалить новость?")
                     setTitle("Удаление")
@@ -96,9 +92,6 @@ class SavedNewsActivity : AppCompatActivity() {
                     }
 
                     setNegativeButton("Нет") { _, _ ->
-                        binding.recyclerView.findViewHolderForAdapterPosition(position)?.itemView?.setBackgroundColor(
-                            getThemeColor(com.google.android.material.R.attr.colorPrimary)
-                        )
                     }
                 }.create()
 
@@ -110,12 +103,6 @@ class SavedNewsActivity : AppCompatActivity() {
 
     }
 
-    @ColorInt
-    fun Context.getThemeColor(@AttrRes attribute: Int) = TypedValue().let {
-        theme.resolveAttribute(attribute, it, true)
-        it.data
-    }
-
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
         return true
@@ -123,6 +110,10 @@ class SavedNewsActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
+            android.R.id.home -> {
+                onBackPressed()
+                return true
+            }
             R.id.action_exit -> {
                 finishAffinity()
                 return true
