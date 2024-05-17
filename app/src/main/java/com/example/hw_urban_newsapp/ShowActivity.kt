@@ -83,7 +83,7 @@ class ShowActivity : AppCompatActivity() {
         when (item.itemId) {
             R.id.action_save -> {
                 this.let { viewModel.insertNews(this@ShowActivity, newsData[0]) }
-                Toast.makeText(this, "Новость сохранена!", Toast.LENGTH_SHORT)
+                Toast.makeText(this, "News saved!", Toast.LENGTH_SHORT)
                     .show()
             }
             R.id.action_exit -> {
