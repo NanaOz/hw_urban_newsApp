@@ -47,41 +47,21 @@ class GeneralFragment : Fragment() {
         adapter = CustomAdapter(newsDataForDown)
         binding.recyclerView.adapter = adapter
 
-        val carouselAdapter = CarouselAdapter(newsDataForDown)
+//        val carouselAdapter = CarouselAdapter(newsDataForDown)
+//        binding.carouselRecyclerView.adapter = carouselAdapter
+        val carouselAdapter = CarouselAdapter(newsDataForDown) { news ->
+            val intent = Intent(context, ShowActivity::class.java).apply {
+                putExtra(NEWS_URL, news.url)
+                putExtra(NEWS_TITLE, news.headLine)
+                putExtra(NEWS_IMAGE_URL, news.image)
+                putExtra(NEWS_DESCRIPTION, news.description)
+                putExtra(NEWS_SOURCE, news.source)
+                putExtra(NEWS_PUBLICATION_TIME, news.time)
+                putExtra(NEWS_CONTENT, news.content)
+            }
+            startActivity(intent)
+        }
         binding.carouselRecyclerView.adapter = carouselAdapter
-
-//        // Инициализация MaskableFrameLayout
-//        val inflater = LayoutInflater.from(context)
-////
-//        for (news in newsDataForTopHeadlines) {
-//            val itemView = inflater.inflate(R.layout.list_item_for_top_headlines, binding.carouselRecyclerView, false)
-////
-//            val imageView = itemView.findViewById<ImageView>(R.id.img)
-//            Picasso.get()
-//                .load(news.image)
-//                .fit()
-//                .centerCrop()
-//                .error(R.drawable.newstest)
-//                .into(imageView)
-//
-//            val newsTitle = itemView.findViewById<TextView>(R.id.headline)
-//            newsTitle.text = news.headLine
-//
-//            itemView.setOnClickListener {
-//                val intent = Intent(context, ShowActivity::class.java).apply {
-//                    putExtra(NEWS_URL, news.url)
-//                    putExtra(NEWS_TITLE, news.headLine)
-//                    putExtra(NEWS_IMAGE_URL, news.image)
-//                    putExtra(NEWS_DESCRIPTION, news.description)
-//                    putExtra(NEWS_SOURCE, news.source)
-//                    putExtra(NEWS_PUBLICATION_TIME, news.time)
-//                    putExtra(NEWS_CONTENT, news.content)
-//                }
-//                context?.startActivity(intent)
-//            }
-//
-//            binding.carouselRecyclerView.addView(itemView)
-//        }
 
         // listitem onClick
         adapter.setOnItemClickListener(object : CustomAdapter.OnItemClickListener {

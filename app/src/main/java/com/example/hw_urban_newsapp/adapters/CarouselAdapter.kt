@@ -11,7 +11,7 @@ import com.example.hw_urban_newsapp.R
 import com.squareup.picasso.Picasso
 
 
-class CarouselAdapter(private val newsList: List<NewsModel>) :
+class CarouselAdapter(private val newsList: List<NewsModel>, private val itemClick: (NewsModel) -> Unit)  :
     RecyclerView.Adapter<CarouselAdapter.ItemViewHolder>() {
 
     inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -27,6 +27,10 @@ class CarouselAdapter(private val newsList: List<NewsModel>) :
                 .into(imageView)
 
             headlineTextView.text = news.headLine
+
+            itemView.setOnClickListener {
+                itemClick(news)
+            }
         }
     }
 
