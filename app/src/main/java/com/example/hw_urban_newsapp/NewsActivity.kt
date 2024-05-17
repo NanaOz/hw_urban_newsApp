@@ -112,25 +112,19 @@ class NewsActivity : AppCompatActivity() {
     }
 
     private fun isNetworkAvailable(context: Context): Boolean {
-        val connectivityManager =
-            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            val capabilities =
-                connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
-                    ?: return false
-            return when {
-                capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> true
-                capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) -> true
-                capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> true
-                else -> false
-            }
+            val networkCapabilities = connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
+            return networkCapabilities?.run {
+                hasTransport(NetworkCapabilities.TRANSPORT_WIFI) ||
+                        hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) ||
+                        hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)
+            } ?: false
         } else {
-            if (connectivityManager.activeNetworkInfo != null && connectivityManager.activeNetworkInfo!!.isConnectedOrConnecting) {
-                return true
-            }
+            val activeNetworkInfo = connectivityManager.activeNetworkInfo
+            return activeNetworkInfo?.isConnectedOrConnecting ?: false
         }
-        return false
     }
 
     companion object {
